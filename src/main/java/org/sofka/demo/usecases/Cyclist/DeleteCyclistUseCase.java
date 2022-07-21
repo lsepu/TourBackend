@@ -10,7 +10,7 @@ import reactor.core.publisher.Mono;
 @AllArgsConstructor
 public class DeleteCyclistUseCase implements IDelete {
 
-    private CyclistRepository cyclistRepository;
+    private final CyclistRepository cyclistRepository;
 
     @Override
     public Mono<Void> apply(String id) {

@@ -11,8 +11,8 @@ import reactor.core.publisher.Flux;
 @AllArgsConstructor
 public class GetAllCyclistsUseCase {
 
-    private CyclistRepository cyclistRepository;
-    private CyclistMapper cyclistMapper;
+    private final CyclistRepository cyclistRepository;
+    private final CyclistMapper cyclistMapper;
 
     public Flux<CyclistDTO> get(){
         return cyclistRepository.findAll().map(cyclistMapper::convertCyclistToCyclistDTO);

@@ -12,8 +12,8 @@ import reactor.core.publisher.Mono;
 @AllArgsConstructor
 public class GetCyclistsByCountryUseCase {
 
-    private CyclistRepository cyclistRepository;
-    private CyclistMapper cyclistMapper;
+    private final CyclistRepository cyclistRepository;
+    private final CyclistMapper cyclistMapper;
 
     public Flux<CyclistDTO> getCyclistsByCountry(String country){
         return cyclistRepository.findByCountry(country).map(cyclist -> cyclistMapper.convertCyclistToCyclistDTO(cyclist))

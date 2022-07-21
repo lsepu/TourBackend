@@ -10,7 +10,7 @@ import reactor.core.publisher.Mono;
 @AllArgsConstructor
 public class DeleteTeamUseCase implements IDelete {
 
-    private TeamRepository teamRepository;
+    private final TeamRepository teamRepository;
 
     @Override
     public Mono<Void> apply(String id) {

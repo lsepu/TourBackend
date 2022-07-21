@@ -11,8 +11,8 @@ import reactor.core.publisher.Flux;
 @AllArgsConstructor
 public class GetAllTeamsUseCase {
 
-    private TeamRepository teamRepository;
-    private TeamMapper teamMapper;
+    private final TeamRepository teamRepository;
+    private final TeamMapper teamMapper;
 
     public Flux<TeamDTO> get(){
         return teamRepository.findAll().map(teamMapper::convertTeamToTeamDTO);

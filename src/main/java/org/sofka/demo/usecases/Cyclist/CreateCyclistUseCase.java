@@ -16,12 +16,12 @@ import javax.validation.Valid;
 @AllArgsConstructor
 public class CreateCyclistUseCase{
 
-    private CyclistMapper cyclistMapper;
-    private CyclistRepository cyclistRepository;
+    private final CyclistMapper cyclistMapper;
+    private final CyclistRepository cyclistRepository;
 
     public Mono<CyclistDTO> apply(@Valid CyclistDTO cyclistDTO) {
         return cyclistRepository
                 .save(cyclistMapper.convertCyclistDTOToCyclist(cyclistDTO))
-                .map(cyclist -> cyclistMapper.convertCyclistToCyclistDTO(cyclist));
+                .map(cyclistMapper::convertCyclistToCyclistDTO);
     }
 }

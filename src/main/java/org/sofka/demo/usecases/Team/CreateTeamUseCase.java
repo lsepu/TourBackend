@@ -15,13 +15,13 @@ import javax.validation.Valid;
 @AllArgsConstructor
 public class CreateTeamUseCase {
 
-    private TeamMapper teamMapper;
-    private TeamRepository teamRepository;
+    private final TeamMapper teamMapper;
+    private final TeamRepository teamRepository;
 
 
     public Mono<TeamDTO> apply(@Valid TeamDTO teamDTO) {
         return teamRepository
                 .save(teamMapper.convertTeamDTOToTeam(teamDTO))
-                .map(team -> teamMapper.convertTeamToTeamDTO(team));
+                .map(teamMapper::convertTeamToTeamDTO);
     }
 }

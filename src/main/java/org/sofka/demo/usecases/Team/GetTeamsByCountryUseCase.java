@@ -12,11 +12,11 @@ import reactor.core.publisher.Mono;
 @AllArgsConstructor
 public class GetTeamsByCountryUseCase {
 
-    private TeamRepository teamRepository;
-    private TeamMapper teamMapper;
+    private final TeamRepository teamRepository;
+    private final TeamMapper teamMapper;
 
     public Flux<TeamDTO> getTeamsByCountry(String country){
-        return teamRepository.findByCountry(country).map(team -> teamMapper.convertTeamToTeamDTO(team))
+        return teamRepository.findByCountry(country).map(teamMapper::convertTeamToTeamDTO)
                 .switchIfEmpty(Mono.error(() -> new Exception("Unable to find the team based on the country")));
     }
 
