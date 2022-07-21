@@ -1,4 +1,4 @@
-package org.sofka.demo.usecases.shared.interfaces;
+package org.sofka.demo.usecases.interfaces;
 
 import reactor.core.publisher.Mono;
 

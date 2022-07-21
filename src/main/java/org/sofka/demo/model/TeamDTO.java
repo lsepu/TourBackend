@@ -16,7 +16,7 @@ public class TeamDTO {
     private String name;
     @NotBlank(message = "team code is mandatory")
     @Size(max = 3)
-    private String teamCode;
+        private String teamCode;
     @NotBlank(message = "Country is mandatory")
     private String country;
     @NotNull

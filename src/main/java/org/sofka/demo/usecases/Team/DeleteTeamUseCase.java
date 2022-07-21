@@ -2,7 +2,7 @@ package org.sofka.demo.usecases.Team;
 
 import lombok.AllArgsConstructor;
 import org.sofka.demo.repository.TeamRepository;
-import org.sofka.demo.usecases.shared.interfaces.IDelete;
+import org.sofka.demo.usecases.interfaces.IDelete;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 

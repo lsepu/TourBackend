@@ -12,9 +12,9 @@ public class CyclistDTO {
     @NotBlank
     private String fullName;
     @NotBlank
-    @Size(max = 3)
+        @Size(max = 3, message="The length of the number cannot be greater than 3")
     private String competitorNumber;
     @NotBlank
-    private String Country;
+    private String country;
 
 }

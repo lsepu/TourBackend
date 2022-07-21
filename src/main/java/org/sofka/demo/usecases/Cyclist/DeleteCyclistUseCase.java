@@ -2,7 +2,7 @@ package org.sofka.demo.usecases.Cyclist;
 
 import lombok.AllArgsConstructor;
 import org.sofka.demo.repository.CyclistRepository;
-import org.sofka.demo.usecases.shared.interfaces.IDelete;
+import org.sofka.demo.usecases.interfaces.IDelete;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 
