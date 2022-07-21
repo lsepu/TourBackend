@@ -17,7 +17,7 @@ public class GetCyclistsByCountryUseCase {
 
     public Flux<CyclistDTO> getCyclistsByCountry(String country){
         return cyclistRepository.findByCountry(country).map(cyclist -> cyclistMapper.convertCyclistToCyclistDTO(cyclist))
-                .switchIfEmpty(Mono.error(() -> new Exception("Unable to find the cyclist based on the country")));
+                .switchIfEmpty(Mono.error(new IllegalArgumentException("Unable to find the cyclist based on the country")));
     }
 
 }

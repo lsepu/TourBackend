@@ -27,7 +27,7 @@ public class CreateCyclistRoute {
 
         return route(POST("/api/v1/cyclist/add")
                         .and(accept(MediaType.APPLICATION_JSON)),
-                request -> request.bodyToMono(CyclistDTO.class).flatMap(executor));
+                request -> request.bodyToMono(CyclistDTO.class).flatMap(executor))  ;
     }
 
 }

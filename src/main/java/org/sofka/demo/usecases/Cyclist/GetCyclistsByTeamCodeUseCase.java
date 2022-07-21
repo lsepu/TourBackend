@@ -16,7 +16,7 @@ public class GetCyclistsByTeamCodeUseCase {
 
     public Mono<CyclistTeamDTO> getCyclistsByTeamCode(String teamCode){
         return teamRepository.findByTeamCode(teamCode).map(teamMapper::convertTeamToCyclistTeamDTO)
-                .switchIfEmpty(Mono.error(() -> new Exception("Unable to find the cyclists based on the team code")));
+                .switchIfEmpty(Mono.error(() -> new IllegalArgumentException("Unable to find the cyclists based on the team code")));
     }
 
 }

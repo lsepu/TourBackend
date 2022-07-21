@@ -17,7 +17,7 @@ public class GetTeamsByCountryUseCase {
 
     public Flux<TeamDTO> getTeamsByCountry(String country){
         return teamRepository.findByCountry(country).map(teamMapper::convertTeamToTeamDTO)
-                .switchIfEmpty(Mono.error(() -> new Exception("Unable to find the team based on the country")));
+                .switchIfEmpty(Mono.error(() -> new IllegalArgumentException("Unable to find the team based on the country")));
     }
 
 }

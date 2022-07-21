@@ -20,8 +20,7 @@ public class GetCyclistsByTeamCodeRoute {
         return route(GET("/api/v1/cyclist/teamcode/{teamCode}"),
                 request -> ServerResponse.ok().contentType(MediaType.APPLICATION_JSON)
                         .body(BodyInserters.fromProducer(getCyclistsByTeamCodeUseCase.getCyclistsByTeamCode(request.pathVariable("teamCode")),
-                                CyclistTeamDTO.class))
-                        .onErrorResume(throwable -> ServerResponse.notFound().build()));
+                                CyclistTeamDTO.class)));
     }
 
 }

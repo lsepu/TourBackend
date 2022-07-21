@@ -1,6 +1,5 @@
 package org.sofka.demo.routes.Team;
 
-import org.sofka.demo.model.CyclistDTO;
 import org.sofka.demo.model.TeamDTO;
 import org.sofka.demo.usecases.Team.GetTeamsByCountryUseCase;
 import org.springframework.context.annotation.Bean;
@@ -21,8 +20,7 @@ public class GetTeamsByCountryRoute {
         return route(GET("/api/v1/team/country/{country}"),
                 request -> ServerResponse.ok().contentType(MediaType.APPLICATION_JSON)
                         .body(BodyInserters.fromProducer(getTeamsByCountry.getTeamsByCountry(request.pathVariable("country")),
-                                TeamDTO.class))
-                        .onErrorResume(throwable -> ServerResponse.notFound().build()));
+                                TeamDTO.class)));
     }
 
 }

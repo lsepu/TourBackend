@@ -20,7 +20,6 @@ public class GetCyclistsByCountryRoute {
         return route(GET("/api/v1/cyclist/country/{country}"),
                 request -> ServerResponse.ok().contentType(MediaType.APPLICATION_JSON)
                         .body(BodyInserters.fromProducer(getCyclistsByCountry.getCyclistsByCountry(request.pathVariable("country")),
-                                CyclistDTO.class))
-                        .onErrorResume(throwable -> ServerResponse.notFound().build()));
+                                CyclistDTO.class)));
     }
 }
