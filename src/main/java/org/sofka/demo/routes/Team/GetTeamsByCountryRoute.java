@@ -18,7 +18,7 @@ public class GetTeamsByCountryRoute {
 
     @Bean
     public RouterFunction<ServerResponse> getTeamsByCountry(GetTeamsByCountryUseCase getTeamsByCountry){
-        return route(GET("/api/v1/team/{country}"),
+        return route(GET("/api/v1/team/country/{country}"),
                 request -> ServerResponse.ok().contentType(MediaType.APPLICATION_JSON)
                         .body(BodyInserters.fromProducer(getTeamsByCountry.getTeamsByCountry(request.pathVariable("country")),
                                 TeamDTO.class))

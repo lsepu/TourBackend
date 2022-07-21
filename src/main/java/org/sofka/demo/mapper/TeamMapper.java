@@ -2,6 +2,7 @@ package org.sofka.demo.mapper;
 
 import org.modelmapper.ModelMapper;
 import org.sofka.demo.collection.Team;
+import org.sofka.demo.model.CyclistTeamDTO;
 import org.sofka.demo.model.TeamDTO;
 import org.springframework.stereotype.Component;
 
@@ -22,6 +23,7 @@ public class TeamMapper {
         return modelMapper.map(teamDTO, Team.class);
     }
 
+    public CyclistTeamDTO convertTeamToCyclistTeamDTO(Team team){return modelMapper.map(team, CyclistTeamDTO.class);}
 
 
 }
