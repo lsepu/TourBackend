@@ -12,6 +12,8 @@ public class DeleteTeamUseCase{
     private final TeamRepository teamRepository;
 
     public Mono<Void> apply(String id) {
-        return teamRepository.deleteById(id);
+        return teamRepository.findById(id)
+                .switchIfEmpty(Mono.error(new IllegalArgumentException("team does not exist")))
+                .flatMap(team -> teamRepository.deleteById(id));
     }
 }

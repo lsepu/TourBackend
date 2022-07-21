@@ -12,6 +12,8 @@ public class DeleteCyclistUseCase {
     private final CyclistRepository cyclistRepository;
 
     public Mono<Void> apply(String id) {
-        return cyclistRepository.deleteById(id);
+        return cyclistRepository.findById(id)
+                .switchIfEmpty(Mono.error(new IllegalArgumentException("cyclist does not exist")))
+                .flatMap(team -> cyclistRepository.deleteById(id));
     }
 }
