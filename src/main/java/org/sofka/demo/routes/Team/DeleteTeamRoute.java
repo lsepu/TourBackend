@@ -15,7 +15,7 @@ import static org.springframework.web.reactive.function.server.RouterFunctions.r
 public class DeleteTeamRoute {
 
     @Bean
-    RouterFunction<ServerResponse> deleteCyclist(DeleteTeamUseCase deleteTeamUseCase){
+    RouterFunction<ServerResponse> deleteTeam(DeleteTeamUseCase deleteTeamUseCase){
         return route(
                 DELETE("/api/v1/team/delete/{id}"),
                 request -> ServerResponse.accepted()
