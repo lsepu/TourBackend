@@ -17,7 +17,7 @@ import static org.springframework.web.reactive.function.server.RequestPredicates
 import static org.springframework.web.reactive.function.server.RouterFunctions.route;
 
 @Configuration
-public class UpdateTeamsRoute {
+public class UpdateTeamRoute {
 
     @Bean
     public RouterFunction<ServerResponse> updateTeam(UpdateTeamUseCase updateTeamUseCase){
